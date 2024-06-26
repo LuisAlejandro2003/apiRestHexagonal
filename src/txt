@@ -1,0 +1,67 @@
+Resumen del Funcionamiento
+Backend:
+
+Node.js: Entorno de ejecución para JavaScript en el servidor.
+Express: Framework de aplicación web para Node.js que facilita la creación de APIs RESTful.
+MongoDB: Base de datos NoSQL para almacenar datos de usuario, con conexión manejada a través de Mongoose.
+MySQL: Base de datos SQL para almacenar datos de usuario, con conexión manejada a través del driver mysql2 para Node.js.
+Mongoose: ODM (Object Data Modeling) para MongoDB y Node.js, que proporciona una estructura para definir esquemas y modelos.
+Organización del Proyecto:
+
+Arquitectura Hexagonal (Puertos y Adaptadores): Diseñada para hacer que el código de la aplicación sea independiente de las interfaces externas, como bases de datos o servicios web.
+Estructura de Carpetas:
+
+src/adapters/controllers: Controladores que manejan las solicitudes HTTP.
+src/adapters/repositories: Repositorios que implementan la persistencia de datos.
+schemas: Esquemas de MongoDB para los modelos de dominio.
+src/application/services: Servicios de aplicación que contienen la lógica de negocio.
+src/domain/models: Modelos de dominio que representan las entidades del negocio.
+src/domain/repositories: Interfaces de repositorios que definen las operaciones de persistencia de datos.
+src/infrastructure/database: Configuración y manejo de las conexiones a las bases de datos.
+src/interfaces/http: Configuración de la aplicación Express y definición de rutas.
+Herramientas y Utilidades:
+
+Postman: Utilizado para probar las APIs desarrolladas.
+MongoDB Compass: Interfaz gráfica para MongoDB que permite administrar la base de datos de forma visual.
+dotenv: Módulo para cargar variables de entorno desde un archivo .env.
+Nodemon: Herramienta que reinicia automáticamente la aplicación de Node.js cuando detecta cambios en los archivos del proyecto.
+Librerías y Módulos de Node.js:
+
+express: Framework para construir aplicaciones web y APIs.
+mongoose: ODM para MongoDB, facilita la interacción con la base de datos.
+mysql2: Driver para MySQL, permite interactuar con la base de datos MySQL desde Node.js.
+dotenv: Carga variables de entorno desde un archivo .env.
+Flujo de Trabajo:
+
+Desarrollo de APIs RESTful utilizando Express:
+
+userController.ts maneja las solicitudes HTTP y llama a userService.ts para realizar operaciones de negocio.
+expressApp.ts define las rutas y utiliza los controladores para manejar las solicitudes.
+Implementación de lógica de negocio en servicios de aplicación:
+
+userService.ts contiene la lógica de negocio y depende de la interfaz IUserRepository para realizar operaciones de persistencia.
+Conexión a bases de datos MongoDB y MySQL a través de repositorios específicos:
+
+mongoUserRepository.ts y mysqlUserRepository.ts implementan IUserRepository y manejan la interacción con MongoDB y MySQL respectivamente.
+mongoConnection.ts y mysqlConnection.ts manejan la configuración y conexión a las bases de datos.
+Pruebas y validación de las APIs utilizando Postman:
+
+Utiliza Postman para enviar solicitudes a las rutas definidas en expressApp.ts y verificar las respuestas de los controladores.
+Gestión de bases de datos utilizando MongoDB Compass para MongoDB:
+
+Utiliza MongoDB Compass para monitorear y manipular los datos en la base de datos MongoDB.
+Monitoreo de la aplicación:
+
+Nodemon se utiliza para reiniciar automáticamente la aplicación cuando se detectan cambios en los archivos del proyecto durante el desarrollo.
+Resumen de Código
+userController.ts: Controladores que manejan solicitudes HTTP y llaman a los servicios de aplicación.
+userSchema.ts: Esquema de usuario para MongoDB definido con Mongoose.
+mongoUserRepository.ts: Implementación del repositorio de usuarios para MongoDB.
+mysqlUserRepository.ts: Implementación del repositorio de usuarios para MySQL.
+userService.ts: Servicio de aplicación que contiene la lógica de negocio y utiliza repositorios.
+User.ts: Modelo de dominio para el usuario.
+IUserRepository.ts: Interfaz de repositorio que define las operaciones de persistencia.
+mongoConnection.ts: Configuración y conexión a la base de datos MongoDB.
+mysqlConnection.ts: Configuración y conexión a la base de datos MySQL.
+server.ts: Configuración y arranque del servidor, selecciona la base de datos a usar.
+expressApp.ts: Configuración de la aplicación Express y definición de rutas.
