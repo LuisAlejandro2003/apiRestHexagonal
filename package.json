@@ -1,11 +1,11 @@
 {
   "name": "apih",
   "version": "1.0.0",
-  "main": "src/infrastructure/server.js",
+  "main": "dist/infrastructure/server.js",
   "scripts": {
     "start:dev": "nodemon --exec ts-node src/infrastructure/server.ts",
     "build": "tsc",
-    "start": "node /infrastructure/server.js"
+    "start": "node dist/infrastructure/server.js"
   },
   "dependencies": {
     "aws-sdk": "^2.1648.0",
