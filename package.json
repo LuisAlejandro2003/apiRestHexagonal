@@ -5,7 +5,7 @@
   "scripts": {
     "start:dev": "nodemon --exec ts-node src/infrastructure/server.ts",
     "build": "tsc",
-    "start": "node dist/server.js"
+    "start": "node dist/infrastructure/server.js"
   },
   "dependencies": {
     "aws-sdk": "^2.1648.0",
